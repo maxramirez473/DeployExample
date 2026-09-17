@@ -2,14 +2,12 @@ import { Outlet } from 'react-router'
 
 export function AuthLayout() {
   return (
-    <div className="flex min-h-svh flex-col justify-center px-6 py-12">
-      <div className="mx-auto w-full max-w-sm">
-        <div className="mb-8">
-          <span className="text-lg font-semibold tracking-tight">Libreta</span>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Consultá alumnos y cargá notas de evaluaciones.
-          </p>
-        </div>
+    <div className="relative flex min-h-svh items-center justify-center overflow-hidden bg-background px-4 py-12">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl"
+      />
+      <div className="relative w-full max-w-sm">
         <Outlet />
       </div>
     </div>
