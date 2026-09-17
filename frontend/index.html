@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Libreta</title>
+    <meta name="description" content="Consultá alumnos y cargá notas de evaluaciones." />
+    <script>
+      // Aplica el tema guardado antes de pintar la página, para evitar el
+      // parpadeo de un tema incorrecto al cargar. Default: oscuro.
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var isDark =
+            stored === 'light'
+              ? false
+              : stored === 'system'
+                ? window.matchMedia('(prefers-color-scheme: dark)').matches
+                : true
+          document.documentElement.classList.toggle('dark', isDark)
+        } catch (e) {
+          /* localStorage no disponible: se usa el tema oscuro por defecto */
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
